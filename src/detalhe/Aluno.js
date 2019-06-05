@@ -14,39 +14,32 @@ class Aluno extends Component {
 		this.state = {
 			nome: '',
 			CPF: undefined,
-			matricula: undefined,
+			matricula: 1212,
 			email: '',
 			senha: '',
 			horas_de_voo: undefined
 		};
-
-		this.handleChange = this.handleChange.bind(this);
-		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
-	handleChange(event) {
-		const target = event.target;
-		const value = target.value;
-		const name = target.name;
-
+	async getData(callback){
+		axios.get('/aluno/' + this.state.matricula, {baseURL: api_url})
+		.then(response =>  {
+		console.log(JSON.stringify(response.data));
 		this.setState({
-			[name]: value
+			nome: response.data.nome,
+			CPF: response.data.CPF,
+			matricula: response.data.matricula,
+			horas_de_voo: response.data.horas_de_voo,
+			email: response.data.email,
+		});
+		})
+		.then(function(error) {
+		console.log(error);
 		});
 	}
 
-	handleSubmit(event) {
-		console.log('A form was submitted: ' + JSON.stringify(this.state));
-
-		axios
-			.post('/aluno/', this.state, { baseURL: api_url })
-			.then(function(response) {
-				console.log(response);
-			})
-			.then(function(error) {
-				console.log(error);
-			});
-
-		event.preventDefault();
+	componentDidMount(){
+		this.getData();
 	}
 
 	render() {
@@ -64,26 +57,27 @@ class Aluno extends Component {
 					<Card>
 						<Card.Body>
 								<div className="parte1 nome">
-									<h1>Lucas Rodrigues</h1>
+									<h1>{this.state.nome}</h1>
 								</div>
 								<div className="parte1 CPF">
                                     <div className="detailsTitle"> CPF </div>
-                                    <div>123.456.789-12</div>
+                                    <div>{this.state.CPF}</div>
 								</div>
 								<div className="parte2">
 									<div className="detailsTitle"> Número de Matrícula </div>
-                                    <div>12345</div>
+                                    <div>{this.state.matricula}</div>
 								</div>
 								<div className="parte2 email">
 									<div className="detailsTitle">Endereço de E-mail </div>
-                                    <div>luquinhasgatao1997@ig.com.br</div>
+                                    <div>{this.state.email}</div>
 								</div>
 								<div className="parte3">
 									<div className="detailsTitle">Horas de Voo</div>
 									<div className="progress_bar">
-										32h
-										<ProgressBar animated now={(32/150)*100}/>
+										{this.state.horas_de_voo}
+										<ProgressBar animated now={(this.state.horas_de_voo/150)*100}/>
 									</div>
+									<br/>
 									<div className="detailsTitle">Média do Parecer</div>
 									<div className="progress_bar">
 										3.6
