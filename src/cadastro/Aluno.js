@@ -66,7 +66,7 @@ class Aluno extends Component {
 							<Card.Title className="titulo">Cadastrar Aluno</Card.Title>
 							<Card.Subtitle className="mb-2 text-muted">Página para o cadastro de Aluno</Card.Subtitle>
 							<Form onSubmit={this.handleSubmit}>
-								<Form.Group className="parte1 nome">
+								<Form.Group className="campo nome">
 									<Form.Label>Nome</Form.Label>
 									<Form.Control
 										type="text"
@@ -77,7 +77,7 @@ class Aluno extends Component {
 										required
 									/>
 								</Form.Group>
-								<Form.Group className="parte1 CPF">
+								<Form.Group className="campo CPF">
 									<Form.Label>CPF</Form.Label>
 									<Form.Control
 										type="number"
@@ -88,7 +88,7 @@ class Aluno extends Component {
 										required
 									/>
 								</Form.Group>
-								<Form.Group className="parte2">
+								<Form.Group className="campo matricula">
 									<Form.Label>Número de matrícula</Form.Label>
 									<Form.Control
 										type="number"
@@ -99,7 +99,7 @@ class Aluno extends Component {
 										required
 									/>
 								</Form.Group>
-								<Form.Group className="parte2 email">
+								<Form.Group className="campo email">
 									<Form.Label>Endereço de e-mail</Form.Label>
 									<Form.Control
 										type="email"
@@ -110,7 +110,7 @@ class Aluno extends Component {
 										required
 									/>
 								</Form.Group>
-								<Form.Group className="parte3">
+								<Form.Group className="campo senha">
 									<Form.Label>Senha</Form.Label>
 									<Form.Control
 										type="password"
@@ -121,7 +121,7 @@ class Aluno extends Component {
 										required
 									/>
 								</Form.Group>
-								<Form.Group className="parte3">
+								<Form.Group className="campo horas">
 									<Form.Label>Horas de voo</Form.Label>
 									<Form.Control
 										type="number"

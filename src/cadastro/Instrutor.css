@@ -1,101 +1,155 @@
 .Card {
-  min-width: 75vw;
-  padding-top: 2vw;
-  padding-bottom: 5vw;
+	min-width: 80%;
+	padding-top: 2%;
+	padding-bottom: 10%;
 }
 
-.parte1{
-  display: inline-block;
-  margin-inline-start: 3vw;
-  padding: 0.5vw;
+.campo {
+	display: inline-block;
 }
 
-.nome{
-  width: 50vw;
+.nome {
+	width: 100%;
+	padding-right: 5%;
+	padding-left: 5%;
 }
 
-.CPF{
-  width: 19vw;
+.CPF {
+	padding-left: 5%;
+	padding-right: 1.5%;
+	width: 30%;
 }
 
-.parte2{
-  display: inline-block;
-  width: 22vw;
-  margin-inline-start: 3vw;
-  padding: 0.5vw;
+.matricula {
+	padding-right: 5%;
+	width: 70%;
 }
 
-.email{
-  width: 47vw;
+.matricula2 {
+	padding-left: 5%;
+	padding-right: 5%;
+	width: 100%;
 }
 
-.parte3{
-  display: inline-block;
-  width: 34.5vw;
-  margin-inline-start: 3vw;
-  padding: 0.5vw;
+.email {
+	padding-left: 5%;
+	padding-right: 1.5%;
+	width: 70%;
 }
 
-.parte4{
-  display: inline-block;
-  width: 34.5vw;
-  margin-inline-start: 3vw;
-  padding: 0.5vw;
-}
-.parte5{
-  display: inline-block;
-  width: 22vw;
-  margin-inline-start: 3vw;
-  padding: 0.5vw;
-}
-.matricula{
-  display: inline-block;
-  width: 22vw;
-  margin-inline-start: 3vw;
-  padding: 0.5vw;
+.senha {
+	padding-right: 5%;
+	width: 30%;
 }
 
-.aeroporto_data{
-  display: inline-block;
-  width: 15.75vw;
-  margin-inline-start: 3vw;
-  padding: 0.5vw;
+.horas {
+	padding-left: 5%;
+	padding-right: 1.5%;
+	width: 30%;
 }
 
-.parecer{
-  padding: 0.5vw;
-  display: inline-block;
-  margin-inline-start: 3vw;
+.breve {
+	padding-right: 1.5%;
+	width: 35%;
 }
 
-.parecer_comentario{
-  width: 49vw;
-  height: 7vw;
+.breve2 {
+	padding-right: 5%;
+	width: 70%;
 }
 
-.parecer_nota{
-  width: 20vw;
+.certificado_instrutor {
+	padding-right: 5%;
+	width: 35%;
 }
 
-.titulo, .mb-2, .botao{
-  margin-inline-start: 3vw;
-  padding: 0.5vw;
+.matricula_aeronave {
+	padding-left: 5%;
+	padding-right: 5%;
+	width: 100%;
 }
 
-.titulo{
-  color: #007bff;
-}
-.botao{
-  width: 15vw;
-  margin-inline-start: 30vw;
+.origem {
+	padding-left: 5%;
+	padding-right: 1.5%;
+	width: 50%;
 }
 
+.destino {
+	padding-right: 5%;
+	width: 50%;
+}
 
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
+.data_inicio {
+	padding-left: 5%;
+	padding-right: 1.5%;
+	width: 50%;
+}
+
+.data_fim {
+	padding-right: 5%;
+	width: 50%;
+}
+
+.matricula_aeronave2 {
+	padding-left: 5%;
+	padding-right: 1.5%;
+	width: 50%;
+}
+
+.origem2 {
+	padding-right: 1.5%;
+	width: 25%;
+}
+
+.destino2 {
+	padding-right: 5%;
+	width: 25%;
+}
+
+.data_inicio2 {
+	padding-left: 5%;
+	padding-right: 1.5%;
+	width: 35%;
+}
+
+.data_fim2 {
+	padding-right: 1.5%;
+	width: 35%;
+}
+
+.parecer_comentario {
+	padding-left: 5%;
+	padding-right: 5%;
+	width: 100%;
+}
+
+.parecer_nota {
+	width: 30%;
+	padding-right: 5%;
+}
+
+.titulo,
+.mb-2,
+.botao {
+	margin-inline-start: 5%;
+	padding: 1%;
+}
+
+.titulo {
+	color: #007bff;
+}
+.botao {
+	width: 20%;
+	margin-right: 5%;
+	margin-left: 75%;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
 }
 input[type='number'] {
-  -moz-appearance:textfield;
+	-moz-appearance: textfield;
 }
