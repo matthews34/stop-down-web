@@ -66,18 +66,18 @@ class Voo extends Component {
 							<Card.Title className="titulo">Cadastrar Voo</Card.Title>
 							<Card.Subtitle className="mb-2 text-muted">Página para o cadastro de Voo</Card.Subtitle>
 							<Form onSubmit={this.handleSubmit}>
-								<Form.Group className="parte3">
+								<Form.Group className="campo matricula2">
 									<Form.Label>Matrícula do Piloto</Form.Label>
 									<Form.Control
 										type="number"
-										placeholder=""
+										placeholder="Matrícula do piloto"
 										name="matricula_piloto"
 										value={this.state.matricula_piloto}
 										onChange={this.handleChange}
 										required
 									/>
 								</Form.Group>
-								<Form.Group className="parte3">
+								<Form.Group className="campo matricula_aeronave">
 									<Form.Label>Matrícula da Aeronave</Form.Label>
 									<Form.Control
 										type="text"
@@ -88,7 +88,7 @@ class Voo extends Component {
 										required
 									/>
 								</Form.Group>
-								<Form.Group className="aeroporto_data">
+								<Form.Group className="campo origem">
 									<Form.Label>Origem</Form.Label>
 									<Form.Control
 										type="text"
@@ -99,7 +99,7 @@ class Voo extends Component {
 										required
 									/>
 								</Form.Group>
-								<Form.Group className="aeroporto_data">
+								<Form.Group className="campo destino">
 									<Form.Label>Destino</Form.Label>
 									<Form.Control
 										type="text"
@@ -110,7 +110,7 @@ class Voo extends Component {
 										required
 									/>
 								</Form.Group>
-								<Form.Group className="aeroporto_data">
+								<Form.Group className="campo data_inicio">
 									<Form.Label>Data de Início</Form.Label>
 									<Form.Control
 										type="date"
@@ -121,7 +121,7 @@ class Voo extends Component {
 										required
 									/>
 								</Form.Group>
-								<Form.Group className="aeroporto_data">
+								<Form.Group className="campo data_fim">
 									<Form.Label>Data de Fim</Form.Label>
 									<Form.Control
 										type="date"

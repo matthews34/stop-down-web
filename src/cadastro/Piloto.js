@@ -67,7 +67,7 @@ class Piloto extends Component {
 							<Card.Title className="titulo">Cadastrar piloto</Card.Title>
 							<Card.Subtitle className="mb-2 text-muted">Página para o cadastro de Piloto</Card.Subtitle>
 							<Form onSubmit={this.handleSubmit}>
-								<Form.Group className="parte1 nome">
+								<Form.Group className="campo nome">
 									<Form.Label>Nome</Form.Label>
 									<Form.Control
 										type="text"
@@ -78,7 +78,7 @@ class Piloto extends Component {
 										required
 									/>
 								</Form.Group>
-								<Form.Group className="parte1 CPF">
+								<Form.Group className="campo CPF">
 									<Form.Label>CPF</Form.Label>
 									<Form.Control
 										type="number"
@@ -89,7 +89,7 @@ class Piloto extends Component {
 										required
 									/>
 								</Form.Group>
-								<Form.Group className="parte2">
+								<Form.Group className="campo matricula">
 									<Form.Label>Número de matrícula</Form.Label>
 									<Form.Control
 										type="number"
@@ -100,29 +100,7 @@ class Piloto extends Component {
 										required
 									/>
 								</Form.Group>
-								<Form.Group className="parte2 email">
-									<Form.Label>Endereço de e-mail</Form.Label>
-									<Form.Control
-										type="email"
-										placeholder="Email"
-										name="email"
-										value={this.state.email}
-										onChange={this.handleChange}
-										required
-									/>
-								</Form.Group>
-								<Form.Group className="parte5">
-									<Form.Label>Senha</Form.Label>
-									<Form.Control
-										type="password"
-										placeholder="Senha" 
-										name="senha"
-										value={this.state.senha}
-										onChange={this.handleChange}
-										required
-									/>
-								</Form.Group>
-								<Form.Group className="parte5">
+								<Form.Group className="campo horas">
 									<Form.Label>Horas de voo</Form.Label>
 									<Form.Control
 										type="number"
@@ -133,13 +111,35 @@ class Piloto extends Component {
 										required
 									/>
 								</Form.Group>
-								<Form.Group className="parte5">
+								<Form.Group className="campo breve2">
 									<Form.Label>Número do breve</Form.Label>
 									<Form.Control
 										type="number"
 										placeholder="Breve"
 										name="breve"
 										value={this.state.breve}
+										onChange={this.handleChange}
+										required
+									/>
+								</Form.Group>
+								<Form.Group className="campo email">
+									<Form.Label>Endereço de e-mail</Form.Label>
+									<Form.Control
+										type="email"
+										placeholder="Email"
+										name="email"
+										value={this.state.email}
+										onChange={this.handleChange}
+										required
+									/>
+								</Form.Group>
+								<Form.Group className="campo senha">
+									<Form.Label>Senha</Form.Label>
+									<Form.Control
+										type="password"
+										placeholder="Senha"
+										name="senha"
+										value={this.state.senha}
 										onChange={this.handleChange}
 										required
 									/>
