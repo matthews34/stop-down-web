@@ -26,6 +26,7 @@ const routing = (
       <Route exact path="/busca/aluno" component={Busca_aluno}/>
       <Route exact path="/lista/aluno" component={Lista_aluno}/>
       <Route exact path="/busca/instrutor" component={Busca_instrutor} />
+			<Route exact path="/detalhes/aluno/:matricula" component={Detalhe_aluno} />
 		</div>
 	</Router>
 )
