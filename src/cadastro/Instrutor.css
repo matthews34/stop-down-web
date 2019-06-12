@@ -120,8 +120,8 @@
 
 .parecer_comentario {
 	padding-left: 5%;
-	padding-right: 5%;
-	width: 100%;
+  padding-right: 3%;
+	min-width: 98%;
 }
 
 .horas_voadas{
@@ -137,7 +137,7 @@
 
 .titulo,
 .mb-2,
-.botao {
+ {
 	margin-inline-start: 5%;
 	padding: 1%;
 }
@@ -148,7 +148,8 @@
 .botao {
 	width: 20%;
 	margin-right: 5%;
-	margin-left: 75%;
+  margin-left: 75%;
+  margin: 3%;
 }
 
 input[type=number]::-webkit-inner-spin-button,
