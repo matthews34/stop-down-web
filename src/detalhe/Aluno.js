@@ -91,10 +91,6 @@ class Aluno extends Component {
               <div>{element.matricula_instrutor}</div>	
             </div>
             <div>
-              <div className="detailsTitle">Nome do Instrutor</div>
-              <div>Luca Roja</div>	
-            </div>
-            <div>
               <div className="detailsTitle">Matrícula da Aeronave</div>
               <div>{element.matricula_aeronave}</div>	
             </div>

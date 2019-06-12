@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Form, Button, FormControl, Table } from 'react-bootstrap';
 import MyNavbar from '../Navbar';
 import axios from 'axios';
+import './Aluno.css'
 import {config as dotenvConfig} from 'dotenv'
 
 dotenvConfig()
@@ -125,24 +126,26 @@ class Aluno extends Component {
         />
         <MyNavbar/>
         <div style={{'marginTop': '1vw', 'align': 'center'}}>
-          <Form inline>
-            <FormControl type="text" placeholder="Matrícula" className="mr-sm-2" name="busca" value={this.state.busca} onChange={this.handleChange}/>
+          <Form inline className="busca">
+            <FormControl type="text" placeholder="Matrícula" className="mr-sm-2 caixa_busca" name="busca" value={this.state.busca} onChange={this.handleChange}/>
             <Button type='submit' variant="outline-success" onClick={this.handleSubmit}>Buscar</Button>
           </Form>
         </div>
-        <Table striped bordered hover style={{"marginTop": '1vw'}}>
-          <thead>
-            <tr>
-              <th>Matrícula</th>
-              <th>Nome</th>
-              <th>CPF</th>
-              <th>E-mail</th>
-            </tr>
-          </thead>
-          <tbody>
-            {tabela}
-          </tbody>
-        </Table>
+        <div className="tabela">
+          <Table striped bordered hover style={{"marginTop": '1vw'}}>
+            <thead>
+              <tr>
+                <th>Matrícula</th>
+                <th>Nome</th>
+                <th>CPF</th>
+                <th>E-mail</th>
+              </tr>
+            </thead>
+            <tbody>
+              {tabela}
+            </tbody>
+          </Table>
+        </div>
       </div>
     );
   }

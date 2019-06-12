@@ -17,9 +17,9 @@ class MyNavbar extends Component {
             <NavDropdown.Item href="/cadastro/voo">Voo</NavDropdown.Item>
             <NavDropdown.Item href="/cadastro/voo_supervisionado">Voo Supervisionado</NavDropdown.Item>
           </NavDropdown>
-          <NavDropdown title="Buscar" id="basic-nav-dropdown">
-            <NavDropdown.Item href="/busca/aluno">Aluno</NavDropdown.Item>
-          </NavDropdown>
+          <Nav.Link href="/busca/aluno">
+            Buscar Aluno
+          </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
