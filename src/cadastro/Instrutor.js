@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Card, Form, Button, Container } from 'react-bootstrap';
-import './Instrutor.css';
+import "./Instrutor.css"
 import MyNavbar from '../Navbar';
 import axios from 'axios';
 import { config as dotenvConfig } from 'dotenv';

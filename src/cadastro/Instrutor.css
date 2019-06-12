@@ -9,20 +9,20 @@
 }
 
 .nome {
-	width: 100%;
+	max-width: 100%;
 	padding-right: 5%;
 	padding-left: 5%;
 }
 
 .CPF {
+  max-width: 30%;
 	padding-left: 5%;
-	padding-right: 1.5%;
-	width: 30%;
+	padding-right: 0%;
 }
 
 .matricula {
+  min-width: 62%;
 	padding-right: 5%;
-	width: 70%;
 }
 
 .matricula2 {
@@ -38,8 +38,8 @@
 }
 
 .senha {
-	padding-right: 5%;
-	width: 30%;
+	padding-right: 0%;
+	width: 35%;
 }
 
 .horas {
@@ -127,11 +127,12 @@
 .horas_voadas{
 	padding-left: 5%;
 	padding-right: 1.5%;
-	width: 50%;
+	width: 69.5%;
 }
+
 .parecer_nota {
 	width: 50%;
-	padding-right: 5%;
+	padding-right: 0%;
 }
 
 .titulo,
