@@ -14,32 +14,126 @@ class Aluno extends Component {
 		this.state = {
 			nome: '',
 			CPF: undefined,
-			matricula: 1212,
+			matricula: this.props.match.params.matricula,
 			email: '',
 			senha: '',
-			horas_de_voo: undefined
+      horas_de_voo: undefined,
+      parecer_media: undefined,
+      voos_supervisionados: [],
 		};
 	}
 
 	async getData(callback){
-		axios.get('/aluno/' + this.state.matricula, {baseURL: api_url})
+		await axios.get('/aluno/' + this.state.matricula, {baseURL: api_url})
 		.then(response =>  {
-		console.log(JSON.stringify(response.data));
-		this.setState({
-			nome: response.data.nome,
-			CPF: response.data.CPF,
-			matricula: response.data.matricula,
-			horas_de_voo: response.data.horas_de_voo,
-			email: response.data.email,
-		});
+      console.log(JSON.stringify(response.data));
+      this.setState({
+        nome: response.data.nome,
+        CPF: response.data.CPF,
+        // matricula: response.data.matricula,
+        horas_de_voo: response.data.horas_de_voo,
+        email: response.data.email,
+      });
 		})
 		.then(function(error) {
-		console.log(error);
-		});
-	}
+      if(error) console.log(error);
+    });
+    await axios.get('/voo_supervisionado/' + this.state.matricula, {baseURL: api_url})
+    .then(response => {
+      console.log(JSON.stringify(response.data));
+      let horas_de_voo = 0;
+      let soma_parecer = 0;
+      response.data.forEach(element => {
+        horas_de_voo += element.horas_voadas;
+        soma_parecer += element.parecer_nota;
+      });
+      let parecer = soma_parecer/response.data.length
+      this.setState({
+        horas_de_voo: horas_de_voo,
+        parecer_media: parecer,
+        voos_supervisionados: response.data,
+      });
+    })
+    .then(function(error) {
+      if(error) console.log(error);
+    });
+
+    callback();
+  }
+  
+  createCards = () => {
+    let cards = [];
+    let i = 0;
+
+    this.state.voos_supervisionados.forEach(element => {
+      let data_hora_inicio = new Date(element.data_hora_inicio);
+      let data_inicio = ("0" + data_hora_inicio.getDate()).slice(-2)
+        + "/" 
+        + ("0" + data_hora_inicio.getMonth()).slice(-2) 
+        + "/" 
+        + data_hora_inicio.getFullYear()
+
+      let data_hora_fim = new Date(element.data_hora_fim);
+      let data_fim = ("0" + data_hora_fim.getDate()).slice(-2)
+        + "/" 
+        + ("0" + data_hora_fim.getMonth()).slice(-2) 
+        + "/" 
+        + data_hora_fim.getFullYear()
+      cards.push(
+        <Card>
+          <Accordion.Toggle as={Card.Header} eventKey={i}>
+            {element.origem}-{element.destino}, {data_inicio}
+          </Accordion.Toggle>
+          <Accordion.Collapse eventKey={i}>
+            <Card.Body>
+            <div>
+              <div className="detailsTitle">Matrícula do Instrutor</div>
+              <div>{element.matricula_instrutor}</div>	
+            </div>
+            <div>
+              <div className="detailsTitle">Nome do Instrutor</div>
+              <div>Luca Roja</div>	
+            </div>
+            <div>
+              <div className="detailsTitle">Matrícula da Aeronave</div>
+              <div>{element.matricula_aeronave}</div>	
+            </div>
+            <div>
+              <div className="detailsTitle">Aeródromo de Origem</div>
+              <div>{element.origem}</div>	
+            </div>
+            <div>
+              <div className="detailsTitle">Aeródromo de Destino</div>
+              <div>{element.destino}</div>	
+            </div>
+            <div>
+              <div className="detailsTitle">Data e hora de início</div>
+              <div>{data_inicio}</div>	
+            </div>
+            <div>
+              <div className="detailsTitle">Data e hora de fim</div>
+              <div>{data_fim}</div>	
+            </div>
+            <div>
+              <div className="detailsTitle">Parecer</div>
+              <div>{element.parecer_nota}</div>														
+            </div>
+            <div>
+              <div className="detailsTitle">Comentários</div>
+              <div>{element.parecer_comentario}</div>	
+            </div>
+            </Card.Body>
+          </Accordion.Collapse>
+        </Card>
+      );
+      i ++;
+    });
+    return cards;
+  }
 
 	componentDidMount(){
-		this.getData();
+    console.log(this.props)
+		this.getData( () => {});
 	}
 
 	render() {
@@ -80,108 +174,15 @@ class Aluno extends Component {
 									<br/>
 									<div className="detailsTitle">Média do Parecer</div>
 									<div className="progress_bar">
-										3.6
-										<ProgressBar variant="success" now={(3.6/5)*100}/>
+										{this.state.parecer_media}
+										<ProgressBar variant="success" now={(this.state.parecer_media/5)*100}/>
 									</div>
 								</div>
 								<hr/>
 								<div className="voos">
 									<h2>Voos Supervisionados</h2>
 									<Accordion>
-										<Card>
-											<Accordion.Toggle as={Card.Header} eventKey="0">
-												GRU-CGH, 02/03/1997
-											</Accordion.Toggle>
-											<Accordion.Collapse eventKey="0">
-											<Card.Body>
-												<div>
-													<div className="detailsTitle">Matrícula do Instrutor</div>
-													<div>1212</div>	
-												</div>
-												<div>
-													<div className="detailsTitle">Nome do Instrutor</div>
-													<div>Luca Roja</div>	
-												</div>
-												<div>
-													<div className="detailsTitle">Matrícula da Aeronave</div>
-													<div>PP-ABC</div>	
-												</div>
-												<div>
-													<div className="detailsTitle">Aeródromo de Origem</div>
-													<div>GRU</div>	
-												</div>
-												<div>
-													<div className="detailsTitle">Aeródromo de Destino</div>
-													<div>CGH</div>	
-												</div>
-												<div>
-													<div className="detailsTitle">Data e hora de início</div>
-													<div>02/03/1997, 8h52</div>	
-												</div>
-												<div>
-													<div className="detailsTitle">Data e hora de fim</div>
-													<div>05/08/2018, 13h42</div>	
-												</div>
-												<div>
-													<div className="detailsTitle">Parecer</div>
-													<div>4</div>														
-												</div>
-												<div>
-													<div className="detailsTitle">Comentários</div>
-													<div>Voo excelente! Foram ótimos 21 anos da minha vida :)</div>	
-												</div>
-
-											</Card.Body>
-											</Accordion.Collapse>
-										</Card>
-										<Card>
-											<Accordion.Toggle as={Card.Header} eventKey="1">
-												SBMT-SBMT, 28/02/2019
-											</Accordion.Toggle>
-											<Accordion.Collapse eventKey="1">
-											<Card.Body>
-												<div>
-													<div className="detailsTitle">Matrícula do Instrutor</div>
-													<div>1212</div>	
-												</div>
-												<div>
-													<div className="detailsTitle">Nome do Instrutor</div>
-													<div>Luca Roja</div>	
-												</div>
-												<div>
-													<div className="detailsTitle">Matrícula da Aeronave</div>
-													<div>PP-ABC</div>	
-												</div>
-												<div>
-													<div className="detailsTitle">Aeródromo de Origem</div>
-													<div>SBMT</div>	
-												</div>
-												<div>
-													<div className="detailsTitle">Aeródromo de Destino</div>
-													<div>SBMT</div>	
-												</div>
-												<div>
-													<div className="detailsTitle">Data e hora de início</div>
-													<div>28/02/2019, 8h52</div>	
-												</div>
-												<div>
-													<div className="detailsTitle">Data e hora de fim</div>
-													<div>28/02/2019, 8h57</div>	
-												</div>
-												<div>
-													<div className="detailsTitle">Parecer</div>
-													<div>1</div>														
-												</div>
-												<div>
-													<div className="detailsTitle">Comentários</div>
-													<div>
-														Tivemos que fazer um pouso de emergência pois o aluno 
-														perdeu o controle.
-													</div>	
-												</div>
-											</Card.Body>
-											</Accordion.Collapse>
-										</Card>
+										{this.createCards()}
 									</Accordion>
 								</div>
 						</Card.Body>
