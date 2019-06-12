@@ -16,7 +16,7 @@ class Aluno extends Component {
 			CPF: undefined,
 			matricula: this.props.match.params.matricula,
 			email: '',
-			senha: '',
+      senha: '',
       horas_de_voo: undefined,
       parecer_media: undefined,
       voos_supervisionados: [],
@@ -41,7 +41,7 @@ class Aluno extends Component {
     await axios.get('/voo_supervisionado/' + this.state.matricula, {baseURL: api_url})
     .then(response => {
       console.log(JSON.stringify(response.data));
-      let horas_de_voo = 0;
+      let horas_de_voo = this.state.horas_de_voo;
       let soma_parecer = 0;
       response.data.forEach(element => {
         horas_de_voo += element.horas_voadas;

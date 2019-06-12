@@ -42,7 +42,11 @@ class Instrutor extends Component {
 		axios
 			.post('/instrutor/', this.state, { baseURL: api_url })
 			.then(function(response) {
-				console.log(response);
+        console.log(response);
+        if(response.status == 200) {
+          alert("Instrutor cadastrado com sucesso");
+          window.location.reload();
+        }
 			})
 			.then(function(error) {
 				console.log(error);
