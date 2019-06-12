@@ -106,9 +106,10 @@ class Aluno extends Component {
     let tabela;
     console.log(this.state.buscaFeita)
     if(this.state.buscaFeita) {
+      let url = "/detalhes/aluno/" + this.state.matricula;
       tabela =  <tr>
                   <td>{this.state.matricula}</td>
-                  <td>{this.state.nome}</td>
+                  <td><a href={url}>{this.state.nome}</a></td>
                   <td>{this.state.CPF}</td>
                   <td>{this.state.email}</td>
                 </tr>
