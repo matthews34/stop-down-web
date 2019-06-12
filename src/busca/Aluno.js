@@ -85,12 +85,15 @@ class Aluno extends Component {
     let tabela = []
 
     this.state.alunos.forEach(element => {
-      tabela.push(<tr>
-                    <td>{element.matricula}</td>
-                    <td>{element.nome}</td>
-                    <td>{element.CPF}</td>
-                    <td>{element.email}</td>
-                  </tr>);
+      let url = "/detalhes/aluno/" + element.matricula
+      tabela.push(
+        <tr>
+          <td>{element.matricula}</td>
+          <td><a href={url}>{element.nome}</a></td>
+          <td>{element.CPF}</td>
+          <td>{element.email}</td>
+        </tr>
+      );
     });
     return tabela
   }
