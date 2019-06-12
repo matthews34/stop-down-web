@@ -7,7 +7,10 @@ import Cadastro_voo from './cadastro/Voo';
 import Cadastro_piloto from './cadastro/Piloto';
 import Cadastro_voo_supervisionado from './cadastro/Voo_supervisionado';
 import Cadastro_aluno from './cadastro/Aluno';
-import Busca_instrutor from './busca/Instrutor'
+import Busca_instrutor from './busca/Instrutor';
+import Busca_aluno from './busca/Aluno';
+import Lista_aluno from './lista/Aluno';
+import Detalhe_aluno from './detalhe/Aluno'
 import * as serviceWorker from './serviceWorker';
 import Home from './Home';
 
@@ -20,11 +23,13 @@ const routing = (
 			<Route exact path="/cadastro/piloto" component={Cadastro_piloto} />
 			<Route exact path="/cadastro/voo_supervisionado" component={Cadastro_voo_supervisionado} />
 			<Route exact path="/cadastro/aluno" component={Cadastro_aluno} />
+      <Route exact path="/busca/aluno" component={Busca_aluno}/>
+      <Route exact path="/lista/aluno" component={Lista_aluno}/>
       <Route exact path="/busca/instrutor" component={Busca_instrutor} />
+			<Route exact path="/detalhes/aluno/:matricula" component={Detalhe_aluno} />
 		</div>
 	</Router>
-);
-
+)
 ReactDOM.render(routing, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

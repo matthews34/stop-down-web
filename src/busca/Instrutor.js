@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, Form, Button, FormControl, Table } from 'react-bootstrap';
+import { Form, Button, FormControl, Table } from 'react-bootstrap';
 import MyNavbar from '../Navbar';
 import axios from 'axios';
 import {config as dotenvConfig} from 'dotenv'
