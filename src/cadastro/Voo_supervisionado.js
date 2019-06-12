@@ -15,7 +15,8 @@ class Instrutor extends Component {
 			parecer_nota: undefined,
 			parecer_comentario: '',
 			data_hora_inicio: undefined,
-			data_hora_fim: undefined,
+      data_hora_fim: undefined,
+      horas_voadas: undefined,
 			matricula_aeronave: '',
 			origem: undefined,
 			destino: undefined,
@@ -129,8 +130,8 @@ class Instrutor extends Component {
 								<Form.Group className="campo data_inicio2">
 									<Form.Label>Data de Início</Form.Label>
 									<Form.Control
-										type="text"
-										placeholder="dd/mm/aa"
+										type="date"
+										placeholder=""
 										name="data_hora_inicio"
 										value={this.state.data_hora_inicio}
 										onChange={this.handleChange}
@@ -140,10 +141,21 @@ class Instrutor extends Component {
 								<Form.Group className="campo data_fim2">
 									<Form.Label>Data de Fim</Form.Label>
 									<Form.Control
-										type="text"
-										placeholder="dd/mm/aa"
+										type="date"
+										placeholder=""
 										name="data_hora_fim"
 										value={this.state.data_hora_fim}
+										onChange={this.handleChange}
+										required
+									/>
+								</Form.Group>
+                <Form.Group className="campo horas_voadas">
+									<Form.Label>Número de horas voadas</Form.Label>
+									<Form.Control
+										type="number"
+										placeholder="Ex: 2"
+										name="horas_voadas"
+										value={this.state.horas_voadas}
 										onChange={this.handleChange}
 										required
 									/>

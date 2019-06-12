@@ -110,12 +110,12 @@
 .data_inicio2 {
 	padding-left: 5%;
 	padding-right: 1.5%;
-	width: 35%;
+	width: 50%;
 }
 
 .data_fim2 {
-	padding-right: 1.5%;
-	width: 35%;
+	padding-right: 5%;
+	width: 50%;
 }
 
 .parecer_comentario {
@@ -124,8 +124,13 @@
 	width: 100%;
 }
 
+.horas_voadas{
+	padding-left: 5%;
+	padding-right: 1.5%;
+	width: 50%;
+}
 .parecer_nota {
-	width: 30%;
+	width: 50%;
 	padding-right: 5%;
 }
 
